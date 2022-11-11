@@ -1,16 +1,16 @@
 extends layout
 block content
   h1= title
-    -let univers  =[{department:"computer science",location:"maryville",rank:30},{department:"arts and science",location:"arkansas",rank:35},{department:"information technology",location:"texas",rank:20}]
+    - var univers  = results
   div(class="container-fluid")
   div(class="row")
 
-    each university,index in univers
+each university,index in univers
             table(style='width:100%')
                 tr
-                    div(class="col-sm-2" onclick=`buy(${index})`) #{university.department}
-                    div(class="col-sm-2" onclick=`buy(${index})`) #{university.location}
-                    div(class="col-sm-2" onclick=`buy(${index})`) #{university.rank}
+                    div(class="col-sm-2" onclick=`buy(${index})`) #{university.university_type}
+                    div(class="col-sm-2" onclick=`buy(${index})`) #{university.size}
+                    div(class="col-sm-2" onclick=`buy(${index})`) #{university.cost}
 
     script.
      
