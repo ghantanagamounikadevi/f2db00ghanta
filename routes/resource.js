@@ -18,4 +18,4 @@ router.get('/university/:id', university_controller.university_detail);
 // GET request for list of all university items.
 router.get('/university', university_controller.university_list);
 module.exports = router;
-//Assignmrnt 12
+

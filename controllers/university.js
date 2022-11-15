@@ -12,9 +12,17 @@ exports.university_create_post = function(req, res) {
  res.send('NOT IMPLEMENTED: university create POST');
 };
 // Handle university delete form on DELETE.
-exports.university_delete = function(req, res) {
- res.send('NOT IMPLEMENTED: university delete DELETE ' + req.params.id);
-};
+exports.university_delete = async function(req, res) { 
+    console.log("delete "  + req.params.id) 
+    try { 
+        result = await university.findByIdAndDelete( req.params.id) 
+        console.log("Removed" + result) 
+        res.send(result) 
+    } catch (err) { 
+        res.status(500) 
+        res.send(`{"error": Error deleting ${err}}`); 
+    } 
+}; 
 // Handle university update form on PUT.
 exports.university_update_put = function(req, res) {
  res.send('NOT IMPLEMENTED: university update PUT' + req.params.id);
@@ -95,3 +103,31 @@ ${JSON.stringify(req.body)}`)
 failed`);
  }
 };
+//Assignment 12 part4
+// Handle a show one view with id specified by query 
+exports.university_view_one_Page = async function(req, res) { 
+    console.log("single view for id "  + req.query.id) 
+    try{ 
+        result = await university.findById( req.query.id) 
+        res.render('result',  
+{ title: 'result', toShow: result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 
+//Assignment 12 part 5
+ // Handle building the view for creating a costume. 
+// No body, no in path parameter, no query. 
+// Does not need to be async 
+exports.costume_create_Page =  function(req, res) { 
+    console.log("create view") 
+    try{ 
+        res.render('universitycreate', { title: 'university Create'}); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 

@@ -4,17 +4,15 @@ block content
     - var univers  = results
   div(class="container-fluid")
   div(class="row")
+    each university,index in univers
+      table(style='width:100%')
+        tr
+          div(class="col-sm-2" onclick=`buy(${index})`) #{university.university_type}
+          div(class="col-sm-2" onclick=`buy(${index})`) #{university.size}
+          div(class="col-sm-2" onclick=`buy(${index})`) #{university.cost}
 
-each university,index in univers
-            table(style='width:100%')
-                tr
-                    div(class="col-sm-2" onclick=`buy(${index})`) #{university.university_type}
-                    div(class="col-sm-2" onclick=`buy(${index})`) #{university.size}
-                    div(class="col-sm-2" onclick=`buy(${index})`) #{university.cost}
-
-    script.
-     
-      function buy(line)
-      {
-        alert(`university details ${line+1}`)
-      }
+  script.
+    function buy(line)
+    {
+      alert(`university details ${line+1}`)
+    }

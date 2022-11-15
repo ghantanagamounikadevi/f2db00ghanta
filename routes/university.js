@@ -23,3 +23,9 @@ module.exports = router;
 // GET request for one university.
 
 router.get('/university/:id', university_controlers.university_detail);
+//Assignment 12 part4
+/* GET detail costume page */ 
+router.get('/', university_controlers.university_view_one_Page); 
+//Assignment 12 part 5
+/* GET create costume page */ 
+router.get('/create', university_controlers.costume_create_Page); 
