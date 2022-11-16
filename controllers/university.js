@@ -121,7 +121,8 @@ exports.university_view_one_Page = async function(req, res) {
  // Handle building the view for creating a costume. 
 // No body, no in path parameter, no query. 
 // Does not need to be async 
-exports.costume_create_Page =  function(req, res) { 
+ 
+exports.university_create_Page =  function(req, res) { 
     console.log("create view") 
     try{ 
         res.render('universitycreate', { title: 'university Create'}); 
@@ -130,4 +131,35 @@ exports.costume_create_Page =  function(req, res) {
         res.status(500) 
         res.send(`{'error': '${err}'}`); 
     } 
+};  
+
+//Assignment 12 part 6
+// Handle building the view for updating a costume. 
+// query provides the id 
+exports.university_update_Page =  async function(req, res) { 
+    console.log("update view for item "+req.query.id) 
+    try{ 
+        let result = await university.findById(req.query.id) 
+        res.render('universityupdate', { title: 'University Update', toShow: result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
 }; 
+  
+//Assignment 12 part 7
+// Handle a delete one view with id from query 
+exports.university_delete_Page = async function(req, res) { 
+    console.log("Delete view for id "  + req.query.id) 
+    try{ 
+        result = await university.findById(req.query.id) 
+        res.render('universitydelete', { title: 'University Delete', toShow: 
+result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 
+ 

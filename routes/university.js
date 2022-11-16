@@ -28,4 +28,10 @@ router.get('/university/:id', university_controlers.university_detail);
 router.get('/', university_controlers.university_view_one_Page); 
 //Assignment 12 part 5
 /* GET create costume page */ 
-router.get('/create', university_controlers.costume_create_Page); 
+router.get('/create', university_controlers.university_create_Page); 
+//Assignment 12 part 6
+/* GET create update page */ 
+router.get('/update', university_controlers.university_update_Page); 
+//Assignment 12 part 7
+/* GET delete costume page */ 
+router.get('/delete', university_controlers.university_delete_Page); 
