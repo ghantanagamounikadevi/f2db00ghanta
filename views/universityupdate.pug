@@ -1,43 +1,40 @@
-extends layout 
- 
-block content 
-  h1= title 
- 
-  - let universityid = toShow._id 
-  - let university_type = toShow.university_type 
-  - let universitycost = toShow.cost 
-  - let universitysize = toShow.size 
-   
-  div.row(class='mb-2') 
-    div.mr-1 ID is 
-    div #{universityid} 
-  - let actionid = "/resource/university/" + universityid 
-  form(id='CostumeForm', action= actionid, method="PUT") 
-    div.form-group 
-        label.costumeAttr(for='university_type') Costume type 
-        input#university_type(type='text', name='university_type', value= university_type ) 
-    div.form-group 
-        label.costumeAttr(for='size') University size 
-        input#size(type='text', name='size', value= universitysize ) 
-    div.form-group 
-        label.costumeAttr(for='cost') University cost 
-        input#cost(type='number', name='cost', value= universitycost ) 
-    input(type="submit") 
- 
-  script. 
-    document.forms['CostumeForm'].addEventListener('submit', (event) => { 
-      event.preventDefault(); 
-      // TODO do something here to show user that form is being submitted 
-      fetch(event.target.action, { 
-        method: 'PUT', 
-        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
-      }).then((resp) => { 
-        return resp.json(); // or resp.text() or whatever the server sends 
-      }).then((body) => { 
-        alert("Update succeded") 
-        // TODO handle body 
-      }).catch((error) => { 
-        // TODO handle error 
-        alert("Update failed " + error ) 
-      }); 
-    }); 
+extends layout
+block content
+ h1= title
+ - let universityid = toShow._id
+ - let university_type = toShow.university_type
+ - let universitycost = toShow.cost
+ - let universitysize = toShow.size
+
+ div.row(class='mb-2')
+ div.mr-1 ID is
+ div #{universityid}
+ - let actionid = "/resource/university/" + universityid
+ form(id='universityForm', action= actionid, method="PUT")
+ div.form-group
+ label.universityAttr(for='university_type') university type
+ input#university_type(type='text', name='university_type', value= university_type )
+ div.form-group
+ label.universityAttr(for='size') university size
+ input#size(type='text', name='size', value= universitysize )
+ div.form-group
+ label.universityAttr(for='cost') university cost
+ input#cost(type='number', name='cost', value= universitycost )
+ input(type="submit")
+ script.
+ document.forms['universityForm'].addEventListener('submit', (event) => {
+ event.preventDefault();
+ // TODO do something here to show user that form is being submitted
+ fetch(event.target.action, {
+ method: 'PUT',
+ body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+ }).then((resp) => {
+ return resp.json(); // or resp.text() or whatever the server sends
+ }).then((body) => {
+ alert("Update succeded")
+ // TODO handle body
+ }).catch((error) => {
+ // TODO handle error
+ alert("Update failed " + error )
+ });
+ });

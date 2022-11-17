@@ -1,4 +1,28 @@
-extends layout 
+//- extends layout
+//- block content
+//-  h1= title
+//-  - let universityid = toShow._id
+//-  - let university_type = toShow.university_type
+//-  - let universitycost = toShow.cost
+//-  - let universitysize = toShow.size
+//-  div
+//-  div.row
+//-  div(class='universityAttr mr-3') university ID is:
+//-  div #{universityid}
+//-  div.row
+//-  div(class='universityAttr mr-3') university_type is:
+//-  div #{university_type}
+//-  div.row
+//-  div(class='universityAttr mr-3') university Size is:
+//-  div #{universitysize}
+//-  div.row
+//-  div(class='universityAttr mr-3') university Cost is:
+//-  div #{universitycost}
+
+
+
+
+ extends layout 
  
 block content 
   h1= title 
@@ -9,14 +33,14 @@ block content
   - let universitysize = toShow.size 
   div 
     div.row 
-      div(class='costumeAttr mr-3') University ID is: 
+      div(class='universityAttr mr-3') university ID is: 
       div #{universityid} 
     div.row 
-      div(class='costumeAttr mr-3') University Type is: 
+      div(class='universityAttr mr-3') university Type is: 
       div #{university_type} 
     div.row 
-      div(class='costumeAttr mr-3') University Size is: 
+      div(class='universityAttr mr-3') university Size is: 
       div #{universitysize} 
     div.row 
-      div(class='costumeAttr mr-3') University Cost is: 
+      div(class='universityAttr mr-3') university Cost is: 
       div #{universitycost} 

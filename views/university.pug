@@ -7,9 +7,9 @@ block content
     each university,index in univers
       table(style='width:100%')
         tr
-          div(class="col-sm-2" onclick=`buy(${index})`) #{university.university_type}
-          div(class="col-sm-2" onclick=`buy(${index})`) #{university.size}
-          div(class="col-sm-2" onclick=`buy(${index})`) #{university.cost}
+          div(class="col-sm-2" onclick=`buy(${index})`) #{university["university_type"]}
+          div(class="col-sm-2" onclick=`buy(${index})`) #{university["size"]}
+          div(class="col-sm-2" onclick=`buy(${index})`) #{university["cost"]}
 
   script.
     function buy(line)
