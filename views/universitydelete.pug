@@ -14,16 +14,16 @@ block content
     script let actionid = "#{actionid}" 
     div 
       div.row 
-        div(class='universityAttr mr-3') University ID is: 
+        div(class='universityAttr mr-3') university ID is: 
         div #{universityid} 
       div.row 
-        div(class='universityAttr mr-3') University Type is: 
+        div(class='universityAttr mr-3') university Type is: 
         div #{university_type} 
       div.row 
-        div(class='universityAttr mr-3') University Size is: 
+        div(class='universityAttr mr-3') university Size is: 
         div #{universitysize} 
       div.row 
-        div(class='universityAttr mr-3') University Cost is: 
+        div(class='universityAttr mr-3') university Cost is: 
         div #{universitycost} 
  
     button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
@@ -31,7 +31,7 @@ block content
  
   script. 
     function cancel() { 
-      // Go back to the home page for the costume collection 
+      // Go back to the home page for the university collection 
       window.location.href='/university' 
     } 
   script. 
@@ -40,11 +40,11 @@ block content
       // delete first 
       fetch(actionid, { 
         method: 'DELETE'      
-      }).then((resp) => {    //dont need a body for the delete
+      }).then((resp) => { 
         return resp.json(); // or resp.text() or whatever the server sends 
       }).then((body) => { 
         alert("Delete succeded") 
-        window.location.href='/university' 
+        window.location.href='/universitys' 
         // TODO handle body 
       }).catch((error) => { 
         // TODO handle error 

@@ -61,18 +61,19 @@ router.get('/university/:id', university_controller.university_detail);
  
 // GET request for list of all university items. 
 router.get('/university', university_controller.university_list); 
-//Assignment 12 
-// GET detail university university page
-router.get('/detail', university_controller.university_view_one_Page); 
+// //Assignment 12 
+// /* GET detail university page */ 
+// router.get('/detail', university_controller.university_view_one_Page); 
+  
 
-/* GET create university page */ 
-router.get('/create', university_controller.university_create_Page); 
+// /* GET create university page */ 
+// router.get('/create', university_controller.university_create_Page); 
 
-/* GET university update page */ 
-router.get('/update', university_controller.university_update_Page); 
+// /* GET create update page */ 
+// router.get('/update', university_controller.university_update_Page); 
 
-/* GET delete university page */ 
-router.get('/delete', university_controller.university_delete_Page); 
+// /* GET delete university page */ 
+// router.get('/delete', university_controller.university_delete_Page); 
  
 module.exports = router; 
 

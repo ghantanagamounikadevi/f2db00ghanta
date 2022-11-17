@@ -37,13 +37,13 @@ app.use('/resource', resourceRouter);
 async function recreateDB(){ 
   // Delete everything 
   await university.deleteMany(); 
-  let instance1 = new university({university_type:"A&M",  size:'MEDIUM', cost:2500}); 
+  let instance1 = new university({university_type:"a&m",  size:"medium", cost:2500}); 
   instance1.save( function(err,doc) { 
       if(err) return console.error(err); 
       console.log("First object saved") 
   }); 
   let instance2 = new 
-  university({university_type:"UMC",  size:'LARGE', 
+  university({university_type:"UMC",  size:"LARGE", 
   cost:3000}); 
     instance2.save( function(err,doc) { 
         if(err) return console.error(err); 
