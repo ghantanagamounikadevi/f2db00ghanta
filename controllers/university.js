@@ -81,7 +81,7 @@ exports.university_update_put = async function (req, res) {
 exports.university_view_all_Page = async function (req, res) {
     try {
         theuniversities = await university.find();
-        res.render('university', { title: 'university Search Results', results: theuniversites });
+        res.render('university', { title: 'university Search Results', results: theuniversities });
     }
     catch (err) {
         res.status(500);

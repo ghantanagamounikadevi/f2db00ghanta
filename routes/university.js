@@ -5,6 +5,9 @@ var router = express.Router();
 /* GET Class page. */
 router.get('/', university_controlers.university_view_all_Page);
 
+/* GET Class page. */
+router.get('/view', university_controlers.university_view_all_Page);
+
 /* GET detail university page */ 
 router.get('/detail', university_controlers.university_view_one_Page); 
   

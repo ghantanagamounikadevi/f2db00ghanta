@@ -1,18 +1,14 @@
 extends layout
 block content
   h1= title
-    - var univers  = results
+  - var univers = results
   div(class="container-fluid")
-  div(class="row")
-    each university,index in univers
-      table(style='width:100%')
-        tr
-          div(class="col-sm-2" onclick=`buy(${index})`) #{university["university_type"]}
-          div(class="col-sm-2" onclick=`buy(${index})`) #{university["size"]}
-          div(class="col-sm-2" onclick=`buy(${index})`) #{university["cost"]}
-
+     div(class="row m-1")
+        each university,index in univers
+            - let destination = `dispatch(\"/university/update?id=${university._id}\")`
+            div(class="row-sm-2", class="m-1") university #{university.university_type}(#{university.size}) is #{university.cost}
+             button.btn( class="btn-primary ml-1", onclick= destination) Update
   script.
-    function buy(line)
-    {
-      alert(`university details ${line+1}`)
-    }
+      function dispatch(path){
+         window.location.href=path
+      }

@@ -2,7 +2,7 @@ extends layout
 block content 
  div(class="container-fluid p-5 bg-success text-black text-center")
   h2.text-center update university
-  
+
   if (toShow == null) 
    h2 No instance to delete 
   else 
@@ -44,3 +44,6 @@ block content
         alert("Update failed " + error ) 
       }); 
     }); 
+      
+    
+    
