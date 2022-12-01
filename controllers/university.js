@@ -32,8 +32,8 @@ exports.university_create_post = async function (req, res) {
     // Even though bodies can be in many different formats, we will be picky 
     // and require that it be a json object
     document.university_type = req.body.university_type;
-    document.universitysize = req.body.universitysize;
-    document.universitycost = req.body.universitycost;
+    document.size = req.body.size;
+    document.cost = req.body.cost;
     try {
         let result = await document.save();
         res.send(result);

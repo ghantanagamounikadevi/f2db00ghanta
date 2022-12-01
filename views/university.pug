@@ -1,13 +1,20 @@
 extends layout
 block content
   h1= title
+   - let create_destination= `dispatch(\"/resource/create")`
+   button.btn( class="btn-primary m1-1", onclick= create_destination) Create
+
   - var univers = results
   div(class="container-fluid")
      div(class="row m-1")
         each university,index in univers
             - let destination = `dispatch(\"/university/update?id=${university._id}\")`
+            - let delet = `dispatch(\"/university/delete?id=${university._id}\")`
+            - let detail_view= `dispatch(\"/university/detail?id=${university._id}\")`
             div(class="row-sm-2", class="m-1") university #{university.university_type}(#{university.size}) is #{university.cost}
-             button.btn( class="btn-primary ml-1", onclick= destination) Update
+              button.btn( class="btn-success ml-1", onclick= destination) Update
+              button.btn( class="btn-danger m1-1", onclick= delet) Delete
+              button.btn( class="btn-info m1-1", onclick= detail_view) Deletail_View
   script.
       function dispatch(path){
          window.location.href=path

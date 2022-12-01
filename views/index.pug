@@ -1,20 +1,39 @@
-extends layout
+//- extends layout
 
-block content
-  h1= title
-  p Welcome to #{title}
-  p This is my render page of lab10
-  button(type="button",class="btn btn-danger",onclick="doBump()") Press Me 
-  br
-  br
-  div(id="bump")  Bump The count  
-  br
-  a(href="/university")  Go To University Page
-  script.  
-    var count=0;
-    var bump=1;
-    function doBump(){
-     count+=bump;
-     bump+=1;
-     document.getElementById("bump").innerHTML="count "+count+" with bump"+bump;
-    }
+//- block content
+//-   h1= title
+//-   p Welcome to #{title}
+//-   p This is my render page of lab10
+//-   button(type="button",class="btn btn-danger",onclick="doBump()") Press Me 
+//-   br
+//-   br
+//-   div(id="bump")  Bump The count  
+//-   br
+//-   a(href="/university")  Go To University Page
+//-   script.  
+//-     var count=0;
+//-     var bump=1;
+//-     function doBump(){
+//-      count+=bump;
+//-      bump+=1;
+//-      document.getElementById("bump").innerHTML="count "+count+" with bump"+bump;
+//-     }
+
+
+
+  //- Assignment 13
+    
+    
+  
+extends layout 
+ 
+block content 
+  if (!user) 
+    a(href="/login") Login 
+    br 
+    a(href="/register") Register 
+  if (user) 
+    p You are currently logged in as #{user.username} 
+    a(href="/university") Take me to university 
+    br 
+    a(href="/logout") Logout 
